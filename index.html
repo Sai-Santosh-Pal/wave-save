@@ -49,6 +49,19 @@
     #startBtn:hover, #creditsBtn:hover {
       transform: translateX(-50%) scale(1.05);
     }
+    #downloadStatus {
+      position: absolute;
+      top: 85%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 18px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: none;
+    }
 
     @media (max-width: 600px) {
       #title {
@@ -63,13 +76,22 @@
 <body>
   <div id="container">
     <img src="app/assets/heading.png" id="title" alt="Wave Save Title">
-    <img src="app/assets/download.png" id="startBtn" alt="Start" onclick="startGame()">
+    <a href="https://github.com/Sai-Santosh-Pal/wave-save/releases/download/v1.0/WaveSave.exe" download>
+      <img src="app/assets/download.png" id="startBtn" alt="Start">
+    </a>
+    <div id="downloadStatus"></div>
   </div>
 
   <script>
-    function startGame() {
-      alert("Start Game Clicked!");
-    }
+    // Add download tracking
+    document.querySelector('#startBtn').addEventListener('click', function() {
+      const statusElement = document.getElementById('downloadStatus');
+      statusElement.style.display = 'block';
+      statusElement.textContent = 'Download started! Check your downloads folder.';
+      setTimeout(() => {
+        statusElement.style.display = 'none';
+      }, 3000);
+    });
 
     function showCredits() {
       alert("Credits Clicked!");
