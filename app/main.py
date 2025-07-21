@@ -4,6 +4,16 @@ import sys
 import math
 import os
 
+def get_asset_path():
+    # Get the path to the assets folder
+    if getattr(sys, 'frozen', False):
+        # If the application is run as a bundle (exe)
+        base_path = sys._MEIPASS
+    else:
+        # If running in development
+        base_path = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(base_path, 'assets')
+
 # --- Constants ---
 WIDTH, HEIGHT = 800, 600
 FPS = 60
@@ -63,7 +73,7 @@ UI_CONFIG = {
     }
 }
 
-ASSET_PATH = 'assets'
+ASSET_PATH = get_asset_path()
 
 # --- Gap and Speed Scaling ---
 INITIAL_GAP = 350  # Increased initial gap in pixels between obstacles
