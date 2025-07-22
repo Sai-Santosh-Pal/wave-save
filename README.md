@@ -1,3 +1,5 @@
+<img width="1536" height="1024" alt="landing-screen" src="https://github.com/user-attachments/assets/c91b9a63-2889-4db2-afd6-68044fd22a42" />
+
 # Wave Save 🏄‍♂️
 
 A retro-style surfing game where you navigate through obstacles, battle pirates, and survive increasingly challenging waves!
